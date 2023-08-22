@@ -102,3 +102,10 @@ void Elipse::print() {
 void Elipse::draw() {
     DrawEllipse(x, y, a, b, color);
 }
+
+void Elipse::update() {
+    calculateC();
+    calculateE();
+    calculateArea();
+    calculatePerimeter();
+}

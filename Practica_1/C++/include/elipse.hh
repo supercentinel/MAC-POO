@@ -37,6 +37,7 @@ class Elipse {
         Color getColor();
         void print();
         void draw();
+        void update();
 };
 #endif
 
