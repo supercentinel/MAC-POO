@@ -5,6 +5,10 @@
 #include "raylib.h"
 #include "poligono.hh"
 
+Color getRandomColor() {
+    return Color{(unsigned char)GetRandomValue(0, 255), (unsigned char)GetRandomValue(0, 255), (unsigned char)GetRandomValue(0, 255), (unsigned char)GetRandomValue(0, 255)};
+}
+
 int main() {
     const int screenWidth = 1280;
     const int screenHeight = 720;
@@ -65,11 +69,16 @@ int main() {
             p_0.setRotation(p_0.getRotation() - 1);
         }
 
+        if (IsKeyPressed(KEY_R)) {
+            p_0.setColor(getRandomColor());
+        }
+
         //Instructions
         DrawText("Use the arrow keys to move the polygon", 10, 10, 20, RED);
         DrawText("Use W and S to change the radius", 10, 30, 20, RED);
         DrawText("Use A and D to change the number of sides", 10, 50, 20, RED);
         DrawText("Use Q and E to rotate the polygon", 10, 70, 20, RED);
+        DrawText("Press R to randomize the color", 10, 90, 20, RED);
 
         //Values
         DrawText(("Center: " + std::to_string(p_0.getCenter().x) + ", " + std::to_string(p_0.getCenter().y)).c_str(), screenWidth-300, 10, 20, RED);
