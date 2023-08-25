@@ -53,8 +53,10 @@ void Poligono::setRadius(int radius) {
 }
 
 void Poligono::setSides(int sides) {
-    this->sides = sides;
-    update();
+    if (sides >= 3) {
+        this->sides = sides;
+        update();
+    }
 }
 
 void Poligono::setRotation(float rotation) {
