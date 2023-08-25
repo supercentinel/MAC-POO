@@ -8,6 +8,7 @@ Poligono::Poligono(Vector2 center, int sides, int radius, Color color) {
     this->sides = sides;
     this->radius = radius;
     this->color = color;
+    this->rotation = 0.0;
     calculatePerimeter();
     calculateArea();
 }
@@ -33,6 +34,10 @@ double Poligono::getPerimeter() {
     return perimeter;
 }
 
+float Poligono::getRotation() {
+    return rotation;
+}
+
 Color Poligono::getColor() {
     return color;
 }
@@ -50,6 +55,10 @@ void Poligono::setRadius(int radius) {
 void Poligono::setSides(int sides) {
     this->sides = sides;
     update();
+}
+
+void Poligono::setRotation(float rotation) {
+    this->rotation = rotation;
 }
 
 void Poligono::setColor(Color color) {
@@ -76,7 +85,7 @@ void Poligono::print() {
 }
 
 void Poligono::draw() {
-    DrawPoly(center, sides, radius, 0, color);
+    DrawPoly(center, sides, radius, rotation, color);
 }
 
 void Poligono::update() {

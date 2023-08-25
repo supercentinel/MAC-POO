@@ -56,6 +56,14 @@ int main() {
             p_0.update();
         }
 
+        if (IsKeyDown(KEY_Q)) {
+            p_0.setRotation(p_0.getRotation() + 1);
+        }
+
+        if (IsKeyDown(KEY_E)) {
+            p_0.setRotation(p_0.getRotation() - 1);
+        }
+
         p_0.draw();
 
         EndDrawing();
