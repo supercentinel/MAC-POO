@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <string>
 
 #include "raylib.h"
 #include "poligono.hh"
@@ -63,6 +64,22 @@ int main() {
         if (IsKeyDown(KEY_E)) {
             p_0.setRotation(p_0.getRotation() - 1);
         }
+
+        //Instructions
+        DrawText("Use the arrow keys to move the polygon", 10, 10, 20, RED);
+        DrawText("Use W and S to change the radius", 10, 30, 20, RED);
+        DrawText("Use A and D to change the number of sides", 10, 50, 20, RED);
+        DrawText("Use Q and E to rotate the polygon", 10, 70, 20, RED);
+
+        //Values
+        DrawText(("Center: " + std::to_string(p_0.getCenter().x) + ", " + std::to_string(p_0.getCenter().y)).c_str(), screenWidth-300, 10, 20, RED);
+
+        DrawText(("Radius: " + std::to_string(p_0.getRadius())).c_str(), screenWidth-300, 30, 20, RED);
+        DrawText(("Sides: " + std::to_string(p_0.getSides())).c_str(), screenWidth-300, 50, 20, RED);
+        DrawText(("Area: " + std::to_string(p_0.getArea())).c_str(), screenWidth-300, 70, 20, RED);
+        DrawText(("Perimeter: " + std::to_string(p_0.getPerimeter())).c_str(), screenWidth-300, 90, 20, RED);
+        DrawText(("Rotation: " + std::to_string(p_0.getRotation())).c_str(), screenWidth-300, 110, 20, RED);
+        DrawText(("Color: " + std::to_string(p_0.getColor().r) + ", " + std::to_string(p_0.getColor().g) + ", " + std::to_string(p_0.getColor().b) + ", " + std::to_string(p_0.getColor().a)).c_str(), screenWidth-300, 130, 20, RED);
 
         p_0.draw();
 
