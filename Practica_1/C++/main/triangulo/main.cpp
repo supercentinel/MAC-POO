@@ -1,22 +1,27 @@
 #include <iostream>
+#include <cmath>
 
 #include "raylib.h"
+#include "triangulo.hh"
 
 int main() {
-    int screenWidth = 800;
-    int screenHeight = 450;
+    int screenWidth = 1280;
+    int screenHeight = 720;
 
-    InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
+    InitWindow(screenWidth, screenHeight, "Triangulo");
 
     SetTargetFPS(60);
+
+    Triangulo t_0 = Triangulo(Vector2{100, 100}, Vector2{200, 200}, Vector2{300, 100}, Vector2{200, 100});
+
+    t_0.setColor(BLUE);
 
     while (!WindowShouldClose()) {
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
 
-        DrawTriangle((Vector2){100,10}, (Vector2){10, 200} , (Vector2){200, 100}, VIOLET);
-
+        t_0.draw();
 
         EndDrawing();
     }

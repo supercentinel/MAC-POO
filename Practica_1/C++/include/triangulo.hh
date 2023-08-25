@@ -2,12 +2,14 @@
 #ifndef TRIANGULO_HH
 #define TRIANGULO_HH
 
+#include <iostream>
+#include <cmath>
+
 #include "raylib.h"
 
 class Triangulo{
     private:
-        int x;
-        int y;
+        Vector2 center;
         Vector2 a;
         Vector2 b;
         Vector2 c;
@@ -16,26 +18,25 @@ class Triangulo{
         Color color;
     public:
         //constructors
-        Triangulo(int x, int y, Vector2 a, Vector2 b, Vector2 c);
+        Triangulo(Vector2 center, Vector2 a, Vector2 b, Vector2 c);
         //setters
-        void setX(int x);
-        void setY(int y);
+        void setCenter(Vector2 center);
         void setA(Vector2 a);
         void setB(Vector2 b);
         void setC(Vector2 c);
-        void calculateArea(double area);
-        void calculatePerimeter(double perimetro);
+        void calculateArea();
+        void calculatePerimeter();
         void setColor(Color color);
         //getters
-        int getX();
-        int getY();
+        Vector2 getCenter();
         Vector2 getA();
         Vector2 getB();
         Vector2 getC();
+        Color getColor();
+        //methods
         double getArea();
         double getPerimeter();
         void draw();
-        Color getColor();
 };
 
 #endif
