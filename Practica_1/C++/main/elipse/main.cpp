@@ -11,8 +11,7 @@ int main() {
     InitWindow(screenWidth, screenHeight, "Elipse");
     SetTargetFPS(60);
 
-    Elipse e_0 = Elipse(100, 100, 250.00, 50.00);
-    e_0.setColor((Color){161, 0, 24, 255});
+    Elipse e_0 = Elipse(Vector2{screenWidth/2, screenHeight/2}, 250.00, 50.00, RED);
 
     e_0.print();
 
@@ -20,19 +19,19 @@ int main() {
         BeginDrawing();
 
         if (IsKeyDown(KEY_UP)) {
-            e_0.setY(e_0.getY() - 1);
+            e_0.setCenter(Vector2{e_0.getCenter().x, e_0.getCenter().y - 1});
         }
 
         if (IsKeyDown(KEY_DOWN)) {
-            e_0.setY(e_0.getY() + 1);
+            e_0.setCenter(Vector2{e_0.getCenter().x, e_0.getCenter().y + 1});
         }
 
         if (IsKeyDown(KEY_LEFT)) {
-            e_0.setX(e_0.getX() - 1);
+            e_0.setCenter(Vector2{e_0.getCenter().x - 1, e_0.getCenter().y});
         }
 
         if (IsKeyDown(KEY_RIGHT)) {
-            e_0.setX(e_0.getX() + 1);
+            e_0.setCenter(Vector2{e_0.getCenter().x + 1, e_0.getCenter().y});
         }
 
         if (IsKeyDown(KEY_W)) {
@@ -79,10 +78,10 @@ int main() {
         DrawText("Position: ", screenWidth-200, 170, 20,  DARKGRAY);
         //X
         DrawText("X: ", screenWidth-200, 190, 20,  DARKGRAY);
-        DrawText(std::to_string(e_0.getX()).c_str(), screenWidth-180, 190, 20,  DARKGRAY);
+        DrawText(std::to_string(e_0.getCenter().x).c_str(), screenWidth-180, 190, 20,  DARKGRAY);
         //Y
         DrawText("Y: ", screenWidth-200, 210, 20,  DARKGRAY);
-        DrawText(std::to_string(e_0.getY()).c_str(), screenWidth-180, 210, 20,  DARKGRAY);
+        DrawText(std::to_string(e_0.getCenter().y).c_str(), screenWidth-180, 210, 20,  DARKGRAY);
 
         if(IsKeyDown(KEY_M)) {
             e_0.print();

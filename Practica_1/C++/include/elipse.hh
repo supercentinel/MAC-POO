@@ -6,8 +6,7 @@
 
 class Elipse {
     private:
-        int x;
-        int y;
+        Vector2 center;
         double a;
         double b;
         double c;
@@ -16,28 +15,28 @@ class Elipse {
         double perimeter;
         Color color;
     public:
-        Elipse(int x, int y, double a, double b, Color color);
-        void setX(int x);
-        void setY(int y);
-        int getX();
-        int getY();
+        Elipse(Vector2 center, double a, double b, Color color);
+        //setters
+        void setCenter(Vector2 center);
         void setA(double a);
         void setB(double b);
-        void calculateC();
-        void calculateE();
+        void setColor(Color color);
+        //getters
+        Vector2 getCenter();
         double getA();
         double getB();
         double getC();
         double getE();
-        void calculateArea();
-        void calculatePerimeter();
         double getArea();
         double getPerimeter();
-        void setColor(Color color);
         Color getColor();
+        //methods
+        void calculateC();
+        void calculateE();
+        void calculateArea();
+        void calculatePerimeter();
         void print();
         void draw();
         void update();
 };
 #endif
-

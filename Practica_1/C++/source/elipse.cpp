@@ -3,9 +3,9 @@
 #include <cmath>
 #include "raylib.h"
 
-Elipse::Elipse(int x, int y, double a, double b, Color color) {
-    this->x = x;
-    this->y = y;
+//constructor
+Elipse::Elipse(Vector2 center, double a, double b, Color color) {
+    this->center = center;
     this->a = a;
     this->b = b;
     this->color = color;
@@ -14,37 +14,9 @@ Elipse::Elipse(int x, int y, double a, double b, Color color) {
     calculateArea();
     calculatePerimeter();
 }
-
-void Elipse::setX(int x) {
-    this->x = x;
-}
-
-void Elipse::setY(int y) {
-    this->y = y;
-}
-
-int Elipse::getX() {
-    return x;
-}
-
-int Elipse::getY() {
-    return y;
-}
-
-void Elipse::setA(double a) {
-    this->a = a;
-}
-
-void Elipse::setB(double b) {
-    this->b = b;
-}
-
-void Elipse::calculateC() {
-    c = sqrt((a * a) - (b * b));
-}
-
-void Elipse::calculateE() {
-    e = c / a;
+//getters
+Vector2 Elipse::getCenter() {
+    return center;
 }
 
 double Elipse::getA() {
@@ -63,12 +35,8 @@ double Elipse::getE() {
     return e;
 }
 
-void Elipse::calculateArea() {
-    area = M_PI * a * b;
-}
-
-void Elipse::calculatePerimeter() {
-    perimeter = 2 * M_PI * sqrt((a * a + b * b) / 2);
+Color Elipse::getColor() {
+    return color;
 }
 
 double Elipse::getArea() {
@@ -78,19 +46,50 @@ double Elipse::getArea() {
 double Elipse::getPerimeter() {
     return perimeter;
 }
+//setters
+void Elipse::setCenter(Vector2 center) {
+    this->center = center;
+}
+
+void Elipse::setA(double a) {
+    this->a = a;
+}
+
+void Elipse::setB(double b) {
+    this->b = b;
+}
 
 void Elipse::setColor(Color color) {
     this->color = color;
 }
-
-Color Elipse::getColor() {
-    return color;
+//methods
+void Elipse::calculateC() {
+    if (a < b) {
+        c = sqrt((b * b) - (a * a));
+    } else {
+        c = sqrt((a * a) - (b * b));
+    }
 }
 
+void Elipse::calculateE() {
+    if (c > a) {
+        e = a / c;
+    } else {
+        e = c / a;
+    }
+}
+
+void Elipse::calculateArea() {
+    area = M_PI * a * b;
+}
+
+void Elipse::calculatePerimeter() {
+    perimeter = 2 * M_PI * sqrt((a * a + b * b) / 2);
+}
 void Elipse::print() {
     std::cout << "Elipse: " << std::endl;
-    std::cout << "x: " << x << std::endl;
-    std::cout << "y: " << y << std::endl;
+    std::cout << "x: " << center.x << std::endl;
+    std::cout << "y: " << center.y << std::endl;
     std::cout << "a: " << a << std::endl;
     std::cout << "b: " << b << std::endl;
     std::cout << "c: " << c << std::endl;
@@ -101,7 +100,7 @@ void Elipse::print() {
 }
 
 void Elipse::draw() {
-    DrawEllipse(x, y, a, b, color);
+    DrawEllipse(center.x, center.y, a, b, color);
 }
 
 void Elipse::update() {
