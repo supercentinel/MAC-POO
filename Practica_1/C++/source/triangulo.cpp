@@ -4,11 +4,11 @@
 #include "raylib.h"
 #include "triangulo.hh"
 
-Triangulo::Triangulo(Vector2 center, Vector2 a, Vector2 b, Vector2 c, Color color){
+Triangulo::Triangulo(Vector2 center , Color color){
     this->center = center;
-    this->a = a;
-    this->b = b;
-    this->c = c;
+    this->a = Vector2{center.x, center.y - 50};
+    this->b = Vector2{center.x - 55, center.y + 50};
+    this->c = Vector2{center.x + 55, center.y + 50};
     this->color = color;
     calculateArea();
     calculatePerimeter();
@@ -20,14 +20,17 @@ void Triangulo::setCenter(Vector2 center){
 
 void Triangulo::setA(Vector2 a){
     this->a = a;
+    update();
 }
 
 void Triangulo::setB(Vector2 b){
     this->b = b;
+    update();
 }
 
 void Triangulo::setC(Vector2 c){
     this->c = c;
+    update();
 }
 void Triangulo::setColor(Color color){
     this->color = color;
@@ -71,4 +74,9 @@ void Triangulo::calculateArea() {
 
 void Triangulo::calculatePerimeter() {
     perimeter = sqrt(pow((b.x-a.x),2)+pow((b.y-a.y),2)) + sqrt(pow((c.x-b.x),2)+pow((c.y-b.y),2)) + sqrt(pow((c.x-a.x),2)+pow((c.y-a.y),2));
+}
+
+void Triangulo::update(){
+    calculateArea();
+    calculatePerimeter();
 }
