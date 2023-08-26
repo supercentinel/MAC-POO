@@ -16,8 +16,7 @@ int main() {
     e_0.print();
 
     while (!WindowShouldClose()) {
-        BeginDrawing();
-
+        //Updates
         if (IsKeyDown(KEY_UP)) {
             e_0.setCenter(Vector2{e_0.getCenter().x, e_0.getCenter().y - 1});
         }
@@ -49,6 +48,9 @@ int main() {
         if (IsKeyDown(KEY_D)) {
             e_0.setA(e_0.getA() - 1);
         }
+
+        //Draw
+        BeginDrawing();
 
         ClearBackground(RAYWHITE);
         //Instructions
