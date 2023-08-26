@@ -16,7 +16,7 @@ class Elipse {
         double perimeter;
         Color color;
     public:
-        Elipse(int x, int y, double a, double b);
+        Elipse(int x, int y, double a, double b, Color color);
         void setX(int x);
         void setY(int y);
         int getX();

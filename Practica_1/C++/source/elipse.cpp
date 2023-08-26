@@ -3,11 +3,12 @@
 #include <cmath>
 #include "raylib.h"
 
-Elipse::Elipse(int x, int y, double a, double b) {
+Elipse::Elipse(int x, int y, double a, double b, Color color) {
     this->x = x;
     this->y = y;
     this->a = a;
     this->b = b;
+    this->color = color;
     calculateC();
     calculateE();
     calculateArea();

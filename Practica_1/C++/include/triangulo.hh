@@ -18,7 +18,7 @@ class Triangulo{
         Color color;
     public:
         //constructors
-        Triangulo(Vector2 center, Vector2 a, Vector2 b, Vector2 c);
+        Triangulo(Vector2 center, Vector2 a, Vector2 b, Vector2 c, Color color);
         //setters
         void setCenter(Vector2 center);
         void setA(Vector2 a);
