@@ -9,11 +9,11 @@ SOURCE:= ${TOPDIR}/source
 #flags
 CFLAGS:= -I $(INCLUDE) -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
 
-_DEPS:= elipse.hh
+_DEPS:= elipse.hh randomColor.h
 DEPS:= $(patsubst %,$(INCLUDE)/%,$(_DEPS))
 
 _MAIN = main.cpp
-_SRC:= elipse.cpp
+_SRC:= elipse.cpp randomColor.c
 SRC:= $(patsubst %,$(SOURCE)/%,$(_SRC))
 OBJ:= $(SRC:.cpp=.o) $(_MAIN:.cpp=.o)
 

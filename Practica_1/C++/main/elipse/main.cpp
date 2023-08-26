@@ -2,6 +2,7 @@
 #include <cmath>
 
 #include "raylib.h"
+#include "randomColor.h"
 #include "elipse.hh"
 
 int main() {
@@ -49,6 +50,10 @@ int main() {
             e_0.setA(e_0.getA() - 1);
         }
 
+        if (IsKeyPressed(KEY_R)) {
+            e_0.setColor(getRandomColor());
+        }
+
         //Draw
         BeginDrawing();
 
@@ -57,6 +62,7 @@ int main() {
         DrawText("Use the arrow keys to move the elipse", 10, 10, 20, DARKGRAY);
         DrawText("Use W and S to change the B value", 10, 30, 20, DARKGRAY);
         DrawText("Use A and D to change the A value", 10, 50, 20, DARKGRAY);
+        DrawText("Press R to randomize the color", 10, 70, 20, DARKGRAY);
 
         //Values
         //Area

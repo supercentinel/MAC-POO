@@ -2,6 +2,7 @@
 #include <cmath>
 
 #include "raylib.h"
+#include "randomColor.h"
 #include "triangulo.hh"
 
 int main() {
@@ -56,6 +57,7 @@ int main() {
         if (IsKeyDown(KEY_V)) {
             t_0.setC(Vector2{t_0.getC().x + 1, t_0.getC().y});
         }
+        //movement of the triangle
         if (IsKeyDown(KEY_UP)) {
             t_0.setA(Vector2{t_0.getA().x, t_0.getA().y - 1});
             t_0.setB(Vector2{t_0.getB().x, t_0.getB().y - 1});
@@ -76,6 +78,10 @@ int main() {
             t_0.setB(Vector2{t_0.getB().x + 1, t_0.getB().y});
             t_0.setC(Vector2{t_0.getC().x + 1, t_0.getC().y});
         }
+        //change to a random color
+        if (IsKeyPressed(KEY_SPACE)) {
+            t_0.setColor(getRandomColor());
+        }
 
         BeginDrawing();
 
@@ -86,7 +92,7 @@ int main() {
         DrawText("USE Q W E R to move A vertex. Like in Vim", 10, 30, 20, DARKGRAY);
         DrawText("USE A S D F to move B vertex.", 10, 50, 20, DARKGRAY);
         DrawText("USE Z X C V to move C vertex.", 10, 70, 20, DARKGRAY);
-
+        DrawText("Press SPACE to randomize the color of the triangle.", 10, 90, 20, DARKGRAY);
         t_0.draw();
         //Values
         DrawText("A", t_0.getA().x, t_0.getA().y, 20, DARKGRAY);
