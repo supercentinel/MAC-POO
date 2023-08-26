@@ -8,6 +8,7 @@
 int main() {
     int screenWidth = 1280;
     int screenHeight = 720;
+    bool oculted = false;
 
     InitWindow(screenWidth, screenHeight, "Triangulo");
 
@@ -83,6 +84,10 @@ int main() {
             t_0.setColor(getRandomColor());
         }
 
+        if (IsKeyPressed(KEY_O)) {
+            oculted = !oculted;
+        }
+
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
@@ -93,11 +98,15 @@ int main() {
         DrawText("USE A S D F to move B vertex.", 10, 50, 20, DARKGRAY);
         DrawText("USE Z X C V to move C vertex.", 10, 70, 20, DARKGRAY);
         DrawText("Press SPACE to randomize the color of the triangle.", 10, 90, 20, DARKGRAY);
-        t_0.draw();
-        //Values
-        DrawText("A", t_0.getA().x, t_0.getA().y, 20, DARKGRAY);
-        DrawText("B", t_0.getB().x, t_0.getB().y, 20, DARKGRAY);
-        DrawText("C", t_0.getC().x, t_0.getC().y, 20, DARKGRAY);
+        DrawText("Press O to switch between Occluded and not Occluded.", 10, 110, 20, DARKGRAY);
+        //Draw the triangle
+        if (!oculted) {
+            t_0.draw();
+            //Values
+            DrawText("A", t_0.getA().x, t_0.getA().y, 20, DARKGRAY);
+            DrawText("B", t_0.getB().x, t_0.getB().y, 20, DARKGRAY);
+            DrawText("C", t_0.getC().x, t_0.getC().y, 20, DARKGRAY);
+        }
 
         DrawText(("A: " + std::to_string(t_0.getA().x) + " " + std::to_string(t_0.getA().y)).c_str(), screenWidth-300, 10, 20, DARKGRAY);
         DrawText(("B: " + std::to_string(t_0.getB().x) + " " + std::to_string(t_0.getB().y)).c_str(), screenWidth-300, 30, 20, DARKGRAY);

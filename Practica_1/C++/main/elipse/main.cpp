@@ -9,6 +9,8 @@ int main() {
     const int screenWidth = 1280;
     const int screenHeight = 720;
 
+    bool oculted = false;
+
     InitWindow(screenWidth, screenHeight, "Elipse");
     SetTargetFPS(60);
 
@@ -54,6 +56,10 @@ int main() {
             e_0.setColor(getRandomColor());
         }
 
+        if (IsKeyPressed(KEY_O)) {
+            oculted = !oculted;
+        }
+
         //Draw
         BeginDrawing();
 
@@ -63,6 +69,7 @@ int main() {
         DrawText("Use W and S to change the B value", 10, 30, 20, DARKGRAY);
         DrawText("Use A and D to change the A value", 10, 50, 20, DARKGRAY);
         DrawText("Press R to randomize the color", 10, 70, 20, DARKGRAY);
+        DrawText("Press O to switch between oculted and not oculted", 10, 90, 20, DARKGRAY);
 
         //Values
         //Area
@@ -91,7 +98,9 @@ int main() {
             e_0.print();
         }
 
-        e_0.draw();
+        if(!oculted) {
+            e_0.draw();
+        }
 
         EndDrawing();
     }

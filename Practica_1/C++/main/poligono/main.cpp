@@ -10,6 +10,8 @@ int main() {
     const int screenWidth = 1280;
     const int screenHeight = 720;
 
+    bool oculted = false;
+
     InitWindow(screenWidth, screenHeight, "Poligono");
     SetTargetFPS(60);
 
@@ -67,6 +69,11 @@ int main() {
         if (IsKeyPressed(KEY_R)) {
             p_0.setColor(getRandomColor());
         }
+
+        if (IsKeyPressed(KEY_O)) {
+            oculted = !oculted;
+        }
+
         BeginDrawing();
         ClearBackground(RAYWHITE);
 
@@ -76,7 +83,7 @@ int main() {
         DrawText("Use A and D to change the number of sides", 10, 50, 20, RED);
         DrawText("Use Q and E to rotate the polygon", 10, 70, 20, RED);
         DrawText("Press R to randomize the color", 10, 90, 20, RED);
-
+        DrawText("Press O to switch between oculted and not oculted", 10, 110, 20, RED);
         //Values
         DrawText(("Center: " + std::to_string(p_0.getCenter().x) + ", " + std::to_string(p_0.getCenter().y)).c_str(), screenWidth-300, 10, 20, RED);
 
@@ -87,7 +94,9 @@ int main() {
         DrawText(("Rotation: " + std::to_string(p_0.getRotation())).c_str(), screenWidth-300, 110, 20, RED);
         DrawText(("Color: " + std::to_string(p_0.getColor().r) + ", " + std::to_string(p_0.getColor().g) + ", " + std::to_string(p_0.getColor().b) + ", " + std::to_string(p_0.getColor().a)).c_str(), screenWidth-300, 130, 20, RED);
 
-        p_0.draw();
+        if(!oculted) {
+            p_0.draw();
+        }
 
         EndDrawing();
     }
