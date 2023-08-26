@@ -3,11 +3,8 @@
 #include <string>
 
 #include "raylib.h"
+#include "randomColor.h"
 #include "poligono.hh"
-
-Color getRandomColor() {
-    return Color{(unsigned char)GetRandomValue(0, 255), (unsigned char)GetRandomValue(0, 255), (unsigned char)GetRandomValue(0, 255), (unsigned char)GetRandomValue(0, 255)};
-}
 
 int main() {
     const int screenWidth = 1280;

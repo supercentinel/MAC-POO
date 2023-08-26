@@ -9,11 +9,11 @@ SOURCE:= ${TOPDIR}/source
 #flags
 CFLAGS:= -I $(INCLUDE) -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
 
-_DEPS:= poligono.hh
+_DEPS:= poligono.hh randomColor.h
 DEPS:= $(patsubst %,$(INCLUDE)/%,$(_DEPS))
 
 _MAIN = main.cpp
-_SRC:= poligono.cpp
+_SRC:= poligono.cpp randomColor.cpp
 SRC:= $(patsubst %,$(SOURCE)/%,$(_SRC))
 OBJ:= $(SRC:.cpp=.o) $(_MAIN:.cpp=.o)
 
