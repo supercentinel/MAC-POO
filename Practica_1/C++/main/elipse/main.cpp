@@ -36,22 +36,18 @@ int main() {
 
         if (IsKeyDown(KEY_W)) {
             e_0.setB(e_0.getB() + 1);
-            e_0.update();
         }
 
         if (IsKeyDown(KEY_S)) {
             e_0.setB(e_0.getB() - 1);
-            e_0.update();
         }
 
         if (IsKeyDown(KEY_A)) {
             e_0.setA(e_0.getA() + 1);
-            e_0.update();
         }
 
         if (IsKeyDown(KEY_D)) {
             e_0.setA(e_0.getA() - 1);
-            e_0.update();
         }
 
         ClearBackground(RAYWHITE);

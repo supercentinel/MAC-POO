@@ -53,10 +53,12 @@ void Elipse::setCenter(Vector2 center) {
 
 void Elipse::setA(double a) {
     this->a = a;
+    update();
 }
 
 void Elipse::setB(double b) {
     this->b = b;
+    update();
 }
 
 void Elipse::setColor(Color color) {
