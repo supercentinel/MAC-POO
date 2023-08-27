@@ -1,5 +1,9 @@
+//Executables
+//Linux
 *.o
 *.out
+//Windows
+*.exe
 
 //LaTex Files
 *.aux
