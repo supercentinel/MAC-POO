@@ -14,19 +14,18 @@
         level 2/.append style={level distance=2.5cm, sibling angle=45},
         level 3/.append style={level distance=2cm, sibling angle=110}]
     \node{Lo que se le dió a C para que se convirtiera en C++}
-        child { node { namespaces } }
-        child { node { sobrecarga de\\ funciones }
+        child[concept color=cyan!30] { node { sobrecarga de\\ funciones }
             child { node { permiten alterar el comportamiento de una función }
                 child { node { en tiempo de ejecución } }
                 child { node { dependiendo el tipo de dato } }
             }
         }
-        child { node { objetos }
+        child[concept color=purple] { node { objetos }
             child { node { encapsulamiento } }
             child { node { herencia } }
             child { node { polimorfismo } }
         }
-        child { node { keywords }
+        child[concept color=magenta] { node { keywords }
             child[sibling angle=80] { node { objetos en el heap }
                 child { node { new } }
                 child { node { delete } }
@@ -43,8 +42,12 @@
                 child[sibling angle=40] { node { protected } }
             }
         }
-        child { node { paso\\ de\\ parametros } }
-        child[sibling angle=217] { node { namespaces }
+        child[concept color=green!50] { node { paso\\ de\\ parametros }
+            child { node { por valor } }
+            child { node { por referencia } }
+            child { node { por puntero } }
+        }
+        child[sibling angle=250, concept color=pink] { node { namespaces }
             child { node { permiten agrupar elementos } }
             child { node { evitan conflictos de nombres } }
         }
