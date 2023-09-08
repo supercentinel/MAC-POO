@@ -18,6 +18,7 @@ SRC:= $(patsubst %,$(SOURCE)/%,$(_SRC))
 OBJ:= $(SRC:.cpp=.o) $(_MAIN:.cpp=.o)
 
 ifeq ($(OS),Windows_NT)
+	CFLAGS=-I $(INCLUDE) -lraylib -lopengl32 -lgdi32 -lwinmm
 	EXE:= poligono.exe
 else
 	EXE:= poligono.out
