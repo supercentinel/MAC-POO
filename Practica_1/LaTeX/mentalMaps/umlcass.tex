@@ -1,0 +1,13 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, backgrounds}
+
+\begin{document}
+\begin{tikzpicture}
+  \node[] (user) {User};
+  \node[ below=of user] (system) {System};
+
+  \draw[->] (user) -- node[midway, right] {Request} (system);
+  \draw[<-] (user) -- node[midway, left] {Response} (system);
+\end{tikzpicture}
+\end{document}

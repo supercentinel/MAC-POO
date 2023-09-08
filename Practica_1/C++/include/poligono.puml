@@ -1,0 +1,9 @@
+@startuml
+class Poligono {
+    - center: Vector2
+    - radius: int
+    - sides: int
+    + Poligono(center: Vector2, radius: int, sides: int)
+}
+@enduml
+

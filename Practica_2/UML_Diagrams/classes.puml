@@ -1,0 +1,50 @@
+@startuml
+class Cineteca {
+    -Peliculas: Pelicula[]
+    -Usuarios: Usuario[]
+    +RegistrarPelicula()
+    +RegistrarUsuario()
+}
+
+class Pelicula {
+    -Id: int
+    -Titulo: String
+    -Director: String
+    -Duracion: int
+    -Productora: String
+    -Formatos: String[]
+    +setId(int)
+}
+
+class Estudiante {
+    -Escuela: String
+}
+
+class Usuario {
+    -Id: int
+    -Nombre: String
+    -Dierccion: String
+    -Telefono: String
+    -PeliculasPrestadas: Pelicula[3]
+    -PrestamoDisponible: bool
+    -Multado: bool
+    -Multas: Multa[]
+    +Registro()
+    +PrestarPelicula()
+    +DevolverPelicula()
+    +PagarMulta()
+    +Multar()
+}
+
+class Multa {
+    -Id: int
+    -Fecha: Date
+    -Tipo: String
+}
+
+Cineteca o-- Pelicula
+Cineteca o-- Usuario
+Estudiante --|> Usuario
+Usuario o-- Pelicula
+Usuario o-- Multa
+@enduml

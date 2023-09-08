@@ -1,0 +1,83 @@
+@startuml
+object Alan
+object Â
+object Salo
+object Alucarda
+object Cineteca
+object FMF
+object Eva4
+object SMATSV
+object m_1
+
+Cineteca : Peliculas = [Salo, Alucarda, FMF, Eva4, SMATSV];
+Cineteca : Usuarios = [Alan, Â];
+
+Alan : Id = 1
+Alan : Name = "Alan"
+Alan : Escuela = "FES Acatlan"
+Alan : Dirección = "Calle 1"
+Alan : Teléfono = "123456789"
+Alan : PeliculasPrestadas = [Salo, Alucarda,  ]
+Alan : PrestamoDisponible = true
+Alan : Multado = false
+Alan : Multas = [m_1]
+
+Â : Id = 1124332
+Â : Name = "DASD"
+Â : Dirección = "Calle 1"
+Â : Teléfono = "124634563"
+Â : PeliculasPrestadas = [FMF, Eva4, SMATSV]
+Â : PrestamoDisponible = false
+Â : Multado = false
+Â : Multas = []
+
+Salo : Id = 12
+Salo : Titulo = Salo
+Salo : Director = "Pasolini, Paolo"
+Salo : Duracion = 145
+Salo : Productora = "Produzioni Europee Associate"
+Salo : Formatos = ["35mm"]
+
+Alucarda : Id = 122
+Alucarda : Titulo = "Alucarda"
+Alucarda : Director = "Juan López Moctezuma"
+Alucarda : Duracion = 85
+Alucarda : Productora = "Independiente"
+Alucarda : Formatos = ["35mm"]
+
+FMF : Id = 1223
+FMF : Titulo = "Fantastic Mr. Fox"
+FMF : Director = "Wes Anderson"
+FMF : Duracion = 87
+FMF : Productora = "20th Century Fox Animation"
+FMF : Formatos = ["Digital", "Blu-ray"]
+
+Eva4 : Id = 1223
+Eva4 : Titulo = "Evangelion 3.0 + 1.0 Thirce Upon a Time"
+Eva4 : Director = "Hideaki Anno"
+Eva4 : Duracion = 155
+Eva4 : Productora = "Studio Kara"
+Eva4 : Formatos = ["Digital", "Blu-ray"]
+
+SMATSV : Id = 1253
+SMATSV : Titulo = "Spider-man Across The Spider Verse"
+SMATSV : Director = "Joaquim dos Santos"
+SMATSV : Duracion = 140
+SMATSV : Productora = "Sony Pictures Animation"
+SMATSV : Formatos = ["Digital", "Blu-ray"]
+
+m_1 : Id = 124
+m_1 : Fecha = 2022/08/12
+m_1 : Tipo = "Devolución atrasada"
+
+Alan o-- Alucarda
+Alan o-- Salo
+Â o-- FMF
+Â o-- Eva4
+Â o-- SMATSV
+Cineteca o-- Alucarda
+Cineteca o-- Salo
+Cineteca o-- FMF
+Cineteca o-- Eva4
+Alan o-- m_1
+@enduml
