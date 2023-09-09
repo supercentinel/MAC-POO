@@ -12,3 +12,10 @@
 *.pdf
 *.fls
 *.fdb_latexmk
+
+//images
+*.jpg
+*.png
+*.gif
+*.jpeg
+
