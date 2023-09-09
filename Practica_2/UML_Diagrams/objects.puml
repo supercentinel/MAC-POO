@@ -17,7 +17,7 @@ Alan : Name = "Alan"
 Alan : Escuela = "FES Acatlan"
 Alan : Dirección = "Calle 1"
 Alan : Teléfono = "123456789"
-Alan : PeliculasPrestadas = [Salo, Alucarda,  ]
+Alan : PeliculasPrestadas = [12, 122,  ]
 Alan : PrestamoDisponible = true
 Alan : Multado = false
 Alan : Multas = [m_1]
@@ -26,7 +26,7 @@ Alan : Multas = [m_1]
 Â : Name = "DASD"
 Â : Dirección = "Calle 1"
 Â : Teléfono = "124634563"
-Â : PeliculasPrestadas = [FMF, Eva4, SMATSV]
+Â : PeliculasPrestadas = [1323, 1223, 1253]
 Â : PrestamoDisponible = false
 Â : Multado = false
 Â : Multas = []
@@ -45,7 +45,7 @@ Alucarda : Duracion = 85
 Alucarda : Productora = "Independiente"
 Alucarda : Formatos = ["35mm"]
 
-FMF : Id = 1223
+FMF : Id = 1323
 FMF : Titulo = "Fantastic Mr. Fox"
 FMF : Director = "Wes Anderson"
 FMF : Duracion = 87
@@ -70,14 +70,12 @@ m_1 : Id = 124
 m_1 : Fecha = 2022/08/12
 m_1 : Tipo = "Devolución atrasada"
 
-Alan o-- Alucarda
-Alan o-- Salo
-Â o-- FMF
-Â o-- Eva4
-Â o-- SMATSV
 Cineteca o-- Alucarda
 Cineteca o-- Salo
 Cineteca o-- FMF
 Cineteca o-- Eva4
+Cineteca o-- SMATSV
+Cineteca o-- Alan
+Cineteca o-- Â
 Alan o-- m_1
 @enduml
