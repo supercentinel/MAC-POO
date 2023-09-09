@@ -13,6 +13,8 @@ class Pelicula {
     -Duracion: int
     -Productora: String
     -Formatos: String[]
+    -Existencias: int
+    -EnPrestamo: int
     +setId(int)
 }
 
@@ -25,7 +27,7 @@ class Usuario {
     -Nombre: String
     -Dierccion: String
     -Telefono: String
-    -PeliculasPrestadas: Pelicula[3]
+    -PeliculasPrestadas: int[3]
     -PrestamoDisponible: bool
     -Multado: bool
     -Multas: Multa[]
@@ -45,6 +47,5 @@ class Multa {
 Cineteca o-- Pelicula
 Cineteca o-- Usuario
 Estudiante --|> Usuario
-Usuario o-- Pelicula
 Usuario o-- Multa
 @enduml
