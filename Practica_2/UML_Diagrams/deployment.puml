@@ -1,0 +1,35 @@
+@startuml
+rectangle Personas as " " {
+    actor Usuario\\
+    actor Administrador
+}
+
+interface interfaz
+
+node Sistema as "Sistema de Peliculas" {
+    [Usrs] as "Usuarios"
+    [P] as "Peliculas"
+}
+
+database DB as "Base de datos" {
+    artifact Usuarios
+    artifact Peliculas
+}
+
+file p as "pelicula"
+file m as "multa"
+
+Usuario <-> interfaz
+Administrador <-> interfaz
+p <-> Usuario
+Administrador <-> p
+Administrador -> m
+m -> Usuario
+interfaz -> Sistema
+Sistema -> interfaz
+Sistema -> DB
+DB -> Sistema
+
+
+@enduml
+
