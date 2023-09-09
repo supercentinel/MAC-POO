@@ -1,0 +1,23 @@
+@startuml
+start
+:El usuario realiza un prestamo;
+if (El usuario está registrado?) then (si)
+    if (El usuario tiene 3 prestamos?) then (si)
+        :El usuario no puede realizar el prestamo;
+    else (no)
+        if (El usuario tiene multas?) then (si)
+            :El usuario no puede realizar el prestamo;
+        else (no)
+            :El usuario realiza el prestamo;
+            if (Está disponible la película?) then (si)
+                :El prestamo se realiza;
+            else (no)
+                :El prestamo no se realiza;
+            endif
+        endif
+    endif
+else (no)
+    :El usuario se registra;
+endif
+end
+@enduml
