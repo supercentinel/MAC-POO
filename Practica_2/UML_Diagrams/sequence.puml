@@ -1,0 +1,14 @@
+@startuml
+participant Usuario
+participant Cineteca
+participant Pelicula
+
+Cineteca -> Pelicula: registra Pelicula
+Usuario -> Cineteca: registra Usuario
+Usuario -> Cineteca: solicita Pelicula
+Cineteca -> Pelicula: busca Pelicula
+Cineteca -> Pelicula: Disponibilidad
+Cineteca -> Usuario: Prestamo
+Cineteca -> Usuario: Multa
+Usuario -> Cineteca: Devolucion
+@enduml
