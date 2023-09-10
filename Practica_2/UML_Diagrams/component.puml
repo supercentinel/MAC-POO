@@ -1,0 +1,8 @@
+@startuml
+
+:Administrador: --> (interfaz)
+(interfaz) --> [Registro]
+[Registro] -- [Pelicula]
+[Registro] -- [Usuario]
+
+@enduml
