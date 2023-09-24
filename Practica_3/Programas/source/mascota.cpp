@@ -86,3 +86,36 @@ void Mascota::print() {
         std::cout << "Talla: " << this->talla << std::endl;
         std::cout << "Sexo: " << this->sexo << std::endl;
 }
+
+void Mascota::readFromConsole() {
+        int talla;
+
+        std::cout << "ID: ";
+        std::cin >> this->id;
+        std::cout << "Nombre: ";
+        std::cin >> this->nombre;
+        std::cout << "Raza: ";
+        std::cin >> this->raza;
+        std::cout << "Nombre del propietario: ";
+        std::cin >> this->nombre_propietario;
+        std::cout << "Peso: ";
+        std::cin >> this->peso;
+        std::cout << "Talla: [1] Pequeña, [2] Mediana, [3] Grande: ";
+        std::cin >> talla;
+        switch (talla) {
+                case 1:
+                        this->talla = Pequeña;
+                        break;
+                case 2:
+                        this->talla = Mediana;
+                        break;
+                case 3:
+                        this->talla = Grande;
+                        break;
+                default:
+                        this->talla = Pequeña;
+                        break;
+        }
+        std::cout << "Sexo: ";
+        std::cin >> this->sexo;
+}

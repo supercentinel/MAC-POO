@@ -46,6 +46,7 @@ class Mascota {
         void setSexo(char sexo);
         // Methods
         void print();
+        void readFromConsole();
 };
 
 #endif
