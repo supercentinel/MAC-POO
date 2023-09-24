@@ -9,12 +9,51 @@
 
 // Constructor
 RegistroMascotas::RegistroMascotas(std::string filename) {
-        std::cout << "Leyendo archivo: " << filename << std::endl;
+        this->readFromFile(filename);
 }
 
 // Methods
 void RegistroMascotas::addMascota(Mascota mascota) {
         this->mascotas.push_back(mascota);
+}
+
+void RegistroMascotas::removeMascota(int id) {
+        int i=0;
+
+        for(i=0; i<this->mascotas.size(); i++) {
+                if(this->mascotas[i].getId() == id) {
+                        this->mascotas.erase(this->mascotas.begin() + i);
+                        return;
+                }
+        }
+
+        std::cout << "Mascota no encontrada" << std::endl;
+}
+
+void RegistroMascotas::updateMascota(int id, Mascota mascota) {
+        int i=0;
+
+        for(i=0; i<this->mascotas.size(); i++) {
+                if(this->mascotas[i].getId() == id) {
+                        this->mascotas[i] = mascota;
+                        return;
+                }
+        }
+
+        std::cout << "Mascota no encontrada" << std::endl;
+}
+
+void RegistroMascotas::findMascota(int id) {
+        int i=0;
+
+        for(i=0; i<this->mascotas.size(); i++) {
+                if(this->mascotas[i].getId() == id) {
+                        mascotas[i].print();
+                        return;
+                }
+        }
+
+        std::cout << "Mascota no encontrada" << std::endl;
 }
 
 void RegistroMascotas::readFromFile(std::string filename) {
@@ -48,8 +87,6 @@ void RegistroMascotas::readFromFile(std::string filename) {
                         static_cast<Talla>(std::stoi(tokens[5])),
                         tokens[6][0]
                 );
-
-                dummy.print();
 
                 //adding dummy to the vector
                 this->mascotas.push_back(dummy);

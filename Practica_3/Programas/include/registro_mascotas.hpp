@@ -9,6 +9,7 @@
 class RegistroMascotas {
     private:
         std::vector<Mascota> mascotas;
+        int size;
     public:
         // Constructor
         RegistroMascotas(std::string filename);
@@ -16,7 +17,7 @@ class RegistroMascotas {
         void addMascota(Mascota mascota);
         void removeMascota(int id);
         void updateMascota(int id, Mascota mascota);
-        Mascota getMascota(int id);
+        void findMascota(int id);
         void readFromFile(std::string filename);
         void writeToFile(std::string filename);
 

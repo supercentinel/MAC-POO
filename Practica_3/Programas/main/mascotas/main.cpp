@@ -19,7 +19,8 @@ int main(void) {
                 'M'
             );
 
-    registro.readFromFile("mascotas.csv");
+    registro.removeMascota(43534);
+    registro.findMascota(43534);
 
     return 0;
 }
