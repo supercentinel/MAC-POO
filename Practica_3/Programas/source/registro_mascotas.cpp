@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -48,6 +49,20 @@ void RegistroMascotas::findMascota(int id) {
 
         for(i=0; i<this->mascotas.size(); i++) {
                 if(this->mascotas[i].getId() == id) {
+                        mascotas[i].print();
+                        return;
+                }
+        }
+
+        std::cout << "Mascota no encontrada" << std::endl;
+}
+
+// Overloaded method to find by name
+void RegistroMascotas::findMascota(std::string nombre) {
+        int i=0;
+
+        for(i=0; i<this->mascotas.size(); i++) {
+                if(this->mascotas[i].getNombre() == nombre) {
                         mascotas[i].print();
                         return;
                 }
