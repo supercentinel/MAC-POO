@@ -9,11 +9,11 @@ SOURCE:= ${TOPDIR}/source
 #flags
 CFLAGS:= -I $(INCLUDE)
 
-_DEPS:= mascota.hpp
+_DEPS:= mascota.hpp registro_mascotas.hpp
 DEPS:= $(patsubst %,$(INCLUDE)/%,$(_DEPS))
 
 _MAIN = main.cpp
-_SRC:= mascota.cpp
+_SRC:= mascota.cpp registro_mascotas.cpp
 SRC:= $(patsubst %,$(SOURCE)/%,$(_SRC))
 OBJ:= $(SRC:.cpp=.o) $(_MAIN:.cpp=.o)
 
