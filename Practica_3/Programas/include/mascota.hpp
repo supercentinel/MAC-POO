@@ -4,6 +4,12 @@
 #include <iostream>
 #include <string>
 
+enum Talla {
+    Pequeña = 1,
+    Mediana,
+    Grande
+};
+
 class Mascota {
     protected:
         int id;
@@ -11,7 +17,7 @@ class Mascota {
         std::string raza;
         std::string nombre_propietario;
         int peso;
-        int talla;
+        Talla talla;
         char sexo;
     public:
         // Constructor
@@ -20,7 +26,7 @@ class Mascota {
                 std::string raza,
                 std::string nombre_propietario,
                 int peso,
-                int talla,
+                Talla talla,
                 char sexo);
         // Getters
         int getId();
@@ -28,7 +34,7 @@ class Mascota {
         std::string getRaza();
         std::string getNombrePropietario();
         int getPeso();
-        int getTalla();
+        Talla getTalla();
         char getSexo();
         // Setters
         void setId(int id);
@@ -36,7 +42,7 @@ class Mascota {
         void setRaza(std::string raza);
         void setNombrePropietario(std::string nombre_propietario);
         void setPeso(int peso);
-        void setTalla(int talla);
+        void setTalla(Talla talla);
         void setSexo(char sexo);
         // Methods
         void print();

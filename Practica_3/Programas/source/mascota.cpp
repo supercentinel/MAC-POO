@@ -9,9 +9,8 @@ Mascota::Mascota( int id,
                   std::string raza,
                   std::string nombre_propietario,
                   int peso,
-                  int talla,
+                  Talla talla,
                   char sexo) {
-        ) {
         this->id = id;
         this->nombre = nombre;
         this->raza = raza;
@@ -42,7 +41,7 @@ int Mascota::getPeso() {
         return this->peso;
 }
 
-int Mascota::getTalla() {
+Talla Mascota::getTalla() {
         return this->talla;
 }
 
@@ -70,7 +69,7 @@ void Mascota::setPeso(int peso) {
         this->peso = peso;
 }
 
-void Mascota::setTalla(int talla) {
+void Mascota::setTalla(Talla talla) {
         this->talla = talla;
 }
 
