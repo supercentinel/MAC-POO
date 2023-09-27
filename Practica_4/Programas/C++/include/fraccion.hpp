@@ -31,9 +31,9 @@ class Fraccion{
         Fraccion operator -- ();
         // *
         Fraccion operator * (const Fraccion &otro);
-        Fraccion operator * (int &otro);
+        Fraccion operator * (int otro);
         Fraccion operator *= (const Fraccion &otro);
-        Fraccion operator *= (int &otro);
+        Fraccion operator *= (int otro);
         // /
         Fraccion operator / (const Fraccion &otro);
         Fraccion operator / (int &otro);

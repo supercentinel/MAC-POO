@@ -106,3 +106,34 @@ Fraccion Fraccion::operator -- () {
 
     return *this;
 }
+
+Fraccion Fraccion::operator * (const Fraccion &otro) {
+    int a = this->a * otro.a;
+    int b = this->b * otro.b;
+
+    Fraccion result(a, b);
+
+    return result;
+}
+
+Fraccion Fraccion::operator * (int otro) {
+    Fraccion itof = Fraccion(otro, 1);
+
+    return *this * itof;
+}
+
+Fraccion Fraccion::operator *= (const Fraccion &otro) {
+    *this = *this * otro;
+
+    return *this;
+}
+
+Fraccion Fraccion::operator *= (int otro) {
+    Fraccion itof = Fraccion(otro, 1);
+
+    *this = *this * itof;
+
+    return *this;
+}
+
+
