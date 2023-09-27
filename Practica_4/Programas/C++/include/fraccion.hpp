@@ -16,6 +16,7 @@ class Fraccion{
         void setB(int b);
         //Methods
         std::string toLatex();
+        void normalize();
         //Operator Overload
         // +
         Fraccion operator + (const Fraccion &otro);
@@ -41,17 +42,17 @@ class Fraccion{
         Fraccion operator /= (int otro);
         // order
         bool operator == (const Fraccion &otro);
-        bool operator == (int &otro);
+        bool operator == (int otro);
         bool operator != (const Fraccion &otro);
-        bool operator != (int &otro);
+        bool operator != (int otro);
         bool operator < (const Fraccion &otro);
-        bool operator < (int &otro);
+        bool operator < (int otro);
         bool operator > (const Fraccion &otro);
-        bool operator > (int &otro);
+        bool operator > (int otro);
         bool operator <= (const Fraccion &otro);
-        bool operator <= (int &otro);
+        bool operator <= (int otro);
         bool operator >= (const Fraccion &otro);
-        bool operator >= (int &otro);
+        bool operator >= (int otro);
 };
 
 #endif
