@@ -58,7 +58,25 @@ void Fraccion::reduce() {
     this->a = a / mcd;
     this->b = b / mcd;
 }
+// To other types
+int Fraccion::toInt() {
+    Fraccion dummy = *this;
+    dummy.reduce();
 
+    if(dummy.b == 1) {
+        return dummy.a;
+    } else {
+        return 0;
+    }
+}
+
+float Fraccion::toFloat() {
+    return (float) this->a / (float) this->b;
+}
+
+double Fraccion::toDouble() {
+    return (double) this->a / (double) this->b;
+}
 // Oprerator overloading
 // +
 Fraccion Fraccion::operator + (const Fraccion &otro) {

@@ -21,6 +21,10 @@ class Fraccion{
         std::string toLatex();
         void normalize();
         void reduce();
+        //Convert to other types
+        int toInt();
+        float toFloat();
+        double toDouble();
         //Operator Overload
         // +
         Fraccion operator + (const Fraccion &otro);
