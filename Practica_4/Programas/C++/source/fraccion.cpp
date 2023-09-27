@@ -43,6 +43,22 @@ void Fraccion::normalize() {
     }
 }
 
+void Fraccion::reduce() {
+    int a = this->a;
+    int b = this->b;
+
+    int mcd = 1;
+
+    for (int i = 1; i <= a && i <= b; i++) {
+        if (a % i == 0 && b % i == 0) {
+            mcd = i;
+        }
+    }
+
+    this->a = a / mcd;
+    this->b = b / mcd;
+}
+
 // Oprerator overloading
 // +
 Fraccion Fraccion::operator + (const Fraccion &otro) {

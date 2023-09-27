@@ -20,6 +20,7 @@ class Fraccion{
         //Methods
         std::string toLatex();
         void normalize();
+        void reduce();
         //Operator Overload
         // +
         Fraccion operator + (const Fraccion &otro);
