@@ -262,3 +262,19 @@ bool Fraccion::operator >= (int otro) {
     return *this >= itof;
 }
 
+// I/O
+std::ostream & operator << (std::ostream &out, const Fraccion &f) {
+    out << f.a << "/" << f.b;
+
+    return out;
+}
+
+std::istream & operator >> (std::istream &in, Fraccion &f) {
+
+    std::cout << "a: ";
+    in >> f.a;
+    std::cout << "b: ";
+    in >> f.b;
+
+    return in;
+}

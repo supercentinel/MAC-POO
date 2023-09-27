@@ -1,6 +1,9 @@
 #ifndef FRACCION_HPP
 #define FRACCION_HPP
 
+#include <iostream>
+#include <istream>
+
 class Fraccion{
     private:
         int a;
@@ -53,6 +56,9 @@ class Fraccion{
         bool operator <= (int otro);
         bool operator >= (const Fraccion &otro);
         bool operator >= (int otro);
-};
 
+        // I/O
+        friend std::ostream & operator << (std::ostream &out, const Fraccion &f);
+        friend std::istream & operator >> (std::istream &in, Fraccion &f);
+};
 #endif
