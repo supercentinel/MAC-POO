@@ -36,9 +36,9 @@ class Fraccion{
         Fraccion operator *= (int otro);
         // /
         Fraccion operator / (const Fraccion &otro);
-        Fraccion operator / (int &otro);
+        Fraccion operator / (int otro);
         Fraccion operator /= (const Fraccion &otro);
-        Fraccion operator /= (int &otro);
+        Fraccion operator /= (int otro);
         // order
         bool operator == (const Fraccion &otro);
         bool operator == (int &otro);
