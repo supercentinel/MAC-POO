@@ -110,10 +110,11 @@ Fraccion Fraccion::operator += (int otro) {
     return *this;
 }
 
-Fraccion Fraccion::operator ++ () {
-    *this += 1;
+Fraccion Fraccion::operator ++ (int) {
+    Fraccion dummy = *this;
+    dummy += 1;
 
-    return *this;
+    return dummy;
 }
 
 Fraccion Fraccion::operator - (const Fraccion &otro) {
@@ -147,10 +148,11 @@ Fraccion Fraccion::operator -= (int otro) {
     return *this;
 }
 
-Fraccion Fraccion::operator -- () {
-    *this -= 1;
+Fraccion Fraccion::operator -- (int) {
+    Fraccion dummy = *this;
+    dummy -= 1;
 
-    return *this;
+    return dummy;
 }
 // *
 Fraccion Fraccion::operator * (const Fraccion &otro) {
