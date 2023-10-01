@@ -33,8 +33,6 @@ class Complejo {
         double magnitude();
         Complejo conjugate();
         double arg();
-        double re();
-        double im();
         std::string toTeX(char form);
         // Operator overloading
         Complejo operator + (const Complejo &otro);
@@ -46,11 +44,11 @@ class Complejo {
         Complejo operator * (const Complejo &otro);
         Complejo operator *= (const Complejo &otro);
         // /
-        Complejo operator / (const Complejo &otro);
-        Complejo operator /= (const Complejo &otro);
+        Complejo operator / (Complejo &otro);
+        Complejo operator /= (Complejo &otro);
         // ^
-        Complejo operator ^ (const int &n);
-        // order
+        Complejo operator ^ (int n);
+        // Comparators
         bool operator == (const Complejo &otro);
         bool operator != (const Complejo &otro);
         // I/O
