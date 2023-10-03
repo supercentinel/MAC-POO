@@ -32,6 +32,8 @@ class String {
         String operator + (const char *str);
         String operator += (const String &otro);
         String operator += (const char *str);
+        // Assignment
+        String operator = (const String &otro);
         // Comparison
         bool operator == (const String &otro);
         bool operator == (const char *str);

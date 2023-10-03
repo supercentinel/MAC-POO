@@ -243,6 +243,24 @@ String String::operator += (const char *str) {
 
     return (*this += newString);
 }
+// Assignment
+String String::operator = (const String &otro) {
+    this->length = otro.length;
+    this->data = (char*) realloc(this->data, this->length + 1);
+
+    if (this->data == NULL) {
+        std::cout << "Error: Memory allocation failed." << std::endl;
+    }
+
+    for (int i = 0; otro.data[i] != '\0'; i++) {
+        this->data[i] = otro.data[i];
+    }
+
+    this->data[this->length] = '\0';
+
+    return *this;
+}
+
 // Comparation
 bool String::operator == (const String &otro) {
     if (this->length != otro.length) {
