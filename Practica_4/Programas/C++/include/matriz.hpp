@@ -6,21 +6,21 @@
 class Matriz {
     private:
         unsigned int rows;
-        unsigned int colmumns;
+        unsigned int cols;
         double **data;
     public:
         // Constructors
         Matriz();
-        Matriz(unsigned int rows, unsigned int colmumns);
+        Matriz(unsigned int rows, unsigned int cols);
         Matriz(const Matriz &otro);
         Matriz(std::string filename);
         // Destructor
         ~Matriz();
         // Getters
         unsigned int getRows();
-        unsigned int getColmumns();
+        unsigned int getCols();
         // Methods
-        std::string toTeX(char brackets);
+        std::string toTeX(char brackets, unsigned int decimals);
         double det();
         Matriz transpose();
         Matriz minor();
