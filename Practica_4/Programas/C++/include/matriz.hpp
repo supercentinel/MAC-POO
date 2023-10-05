@@ -5,7 +5,9 @@
 
 class Matriz {
     private:
+        // i
         unsigned int rows;
+        // j
         unsigned int cols;
         double **data;
     public:
@@ -19,12 +21,14 @@ class Matriz {
         // Getters
         unsigned int getRows();
         unsigned int getCols();
+        //Setters
+        void setData(unsigned int i, unsigned int j, double value);
         // Methods
         std::string toTeX(char brackets, unsigned int decimals);
         double det();
         Matriz transpose();
-        Matriz minor();
-        double cofactor(unsigned int i, unsigned int j);
+        Matriz minor(unsigned int _i, unsigned int _j);
+        double cofactor(unsigned int _i, unsigned int _j);
         Matriz adjoint();
         Matriz inverse();
         // Operator overloading
@@ -40,8 +44,8 @@ class Matriz {
         Matriz operator *= (const Matriz &otro);
         Matriz operator *= (const double &escalar);
         // I/O
-        friend std::ostream & operator << (std::ostream &out, const Matriz &f);
-        friend std::istream & operator >> (std::istream &in, Matriz &f);
+        friend std::ostream & operator << (std::ostream &out, const Matriz &m);
+        friend std::istream & operator >> (std::istream &in, Matriz &m);
 };
 
 #endif

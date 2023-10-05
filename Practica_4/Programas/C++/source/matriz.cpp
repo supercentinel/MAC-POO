@@ -1,6 +1,9 @@
 #include "matriz.hpp"
 
+#include <functional>
 #include <iostream>
+#include <istream>
+#include <ostream>
 
 //Constructors
 Matriz::Matriz() {
@@ -57,6 +60,12 @@ unsigned int Matriz::getRows() {
 
 unsigned int Matriz::getCols() {
     return this->cols;
+}
+//Setters
+void Matriz::setData(unsigned int i, unsigned int j, double value) {
+    if(i < this->rows && j < this->cols) {
+        this->data[i][j] = value;
+    }
 }
 // Methods
 std::string Matriz::toTeX(char brackets, unsigned int decimals) {
@@ -120,4 +129,115 @@ std::string Matriz::toTeX(char brackets, unsigned int decimals) {
     TeX += "\\end{" + type + "}\n";
 
     return TeX;
+}
+
+double Matriz::det() {
+    int i = 0;
+    double determinant = 0.00;
+
+    if(this->rows != this->cols) {
+        std::cout << "La matriz no es cuadrada" << std::endl;
+    }
+
+    switch(this->rows) {
+        case 1:
+            determinant = this->data[0][0];
+        break;
+        case 2:
+            determinant = (this->data[0][0] * this->data[1][1]) - (this->data[0][1] * this->data[1][0]);
+        break;
+        default:
+            /* for(i=0; i<this->rows; i++) { */
+            /*     determinant += this->data[0][i] * this->cofactor(0, i); */
+            /* } */
+        break;
+    }
+
+    return determinant;
+}
+
+Matriz Matriz::transpose() {
+    Matriz transpuesta(this->cols, this->rows);
+    int i = 0;
+    int j = 0;
+
+    for(i=0; i<this->rows; i++) {
+        for(j=0; j<this->cols; j++) {
+            transpuesta.data[j][i] = this->data[i][j];
+        }
+    }
+
+    return transpuesta;
+}
+
+Matriz Matriz::minor(unsigned int _i, unsigned int _j) {
+
+    if(this->rows != this->cols) {
+        std::cout << "La matriz no es cuadrada" << std::endl;
+    }
+
+    if(this->rows == 1 && this->cols == 1) {
+        return Matriz();
+    }
+
+    Matriz minor(this->rows-1, this->cols-1);
+
+    int i = 0;
+    int j = 0;
+
+    for(i=0; i<this->rows; i++) {
+        if(i == _i-1) continue;
+        for(j=0; j<this->cols; j++) {
+            if(j == _j-1) continue;
+
+            if(i < _i-1 && j < _j-1) {
+                minor.data[i][j] = this->data[i][j];
+            } else if(i < _i-1 && j > _j-1) {
+                minor.data[i][j-1] = this->data[i][j];
+            } else if(i > _i-1 && j < _j-1) {
+                minor.data[i-1][j] = this->data[i][j];
+            } else {
+                minor.data[i-1][j-1] = this->data[i][j];
+            }
+        }
+    }
+
+    return minor;
+}
+
+//I/O
+std::ostream & operator << (std::ostream &out, const Matriz &m) {
+    int i = 0;
+    int j = 0;
+
+    for(i=0; i<m.rows; i++) {
+        for(j=0; j<m.cols; j++) {
+            out << m.data[i][j] << " ";
+        }
+        out << std::endl;
+    }
+
+    return out;
+}
+
+std::istream & operator >> (std::istream &in, Matriz &m) {
+    int i = 0;
+    int j = 0;
+
+    std::cout << "Filas: ";
+    in >> m.rows;
+    std::cout << "Columnas: ";
+    in >> m.cols;
+
+    m.data = (double**) realloc(m.data, m.rows * sizeof(double*));
+
+    for(i=0; i<m.rows; i++) {
+        m.data[i] = (double*) realloc(m.data[i], m.cols * sizeof(double));
+        for(j=0; j<m.cols; j++) {
+            std::cout << "[" << i << "][" << j << "]: ";
+            in >> m.data[i][j];
+        }
+    }
+
+    return in;
 }
