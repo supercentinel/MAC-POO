@@ -29,9 +29,12 @@ class Matriz {
         Matriz transpose();
         Matriz minor(unsigned int _i, unsigned int _j);
         double cofactor(unsigned int _i, unsigned int _j);
-        Matriz adjoint();
+        Matriz cofactorMatrix();
+        Matriz adj();
         Matriz inverse();
         // Operator overloading
+        // =
+        Matriz operator = (const Matriz &otro);
         // +
         Matriz operator + (const Matriz &otro);
         Matriz operator += (const Matriz &otro);

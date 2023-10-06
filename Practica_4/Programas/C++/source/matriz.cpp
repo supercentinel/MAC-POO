@@ -1,5 +1,6 @@
 #include "matriz.hpp"
 
+#include <cstdlib>
 #include <functional>
 #include <iostream>
 #include <istream>
@@ -147,9 +148,9 @@ double Matriz::det() {
             determinant = (this->data[0][0] * this->data[1][1]) - (this->data[0][1] * this->data[1][0]);
         break;
         default:
-            /* for(i=0; i<this->rows; i++) { */
-            /*     determinant += this->data[0][i] * this->cofactor(0, i); */
-            /* } */
+            for(i=0; i<this->rows; i++) {
+                determinant += this->data[0][i] * this->cofactor(1, i+1);
+            }
         break;
     }
 
@@ -203,6 +204,158 @@ Matriz Matriz::minor(unsigned int _i, unsigned int _j) {
     }
 
     return minor;
+}
+
+double Matriz::cofactor(unsigned int _i, unsigned int _j) {
+    double cofactor = 0.00;
+
+    if(this->rows != this->cols) {
+        std::cout << "La matriz no es cuadrada" << std::endl;
+        return 0.00;
+    }
+
+    if(_i + _j % 2 == 0) {
+        cofactor = this->minor(_i, _j).det();
+    } else {
+        cofactor = -1 * this->minor(_i, _j).det();
+    }
+
+    return cofactor;
+}
+
+Matriz Matriz::cofactorMatrix() {
+    Matriz cofactorMatrix(this->rows, this->cols);
+    int i = 0;
+    int j = 0;
+
+    for(i=0; i<this->rows; i++) {
+        for(j=0; j<this->cols; j++) {
+            cofactorMatrix.data[i][j] = this->cofactor(i+1, j+1);
+        }
+    }
+
+    return cofactorMatrix;
+}
+
+Matriz Matriz::adj() {
+
+    Matriz adj = this->cofactorMatrix().transpose();
+
+    return adj;
+}
+
+Matriz Matriz::inverse() {
+
+    Matriz inverse = this->adj() * (1/this->det());
+
+    return inverse;
+}
+//Operator overloading
+// =
+Matriz Matriz::operator = (const Matriz &otro) {
+    int i = 0;
+    int j = 0;
+
+    //free the memory
+    for(i=0; i<this->rows; i++) {
+        free(this->data[i]);
+    }
+
+    free(this->data);
+
+    this->rows = otro.rows;
+    this->cols = otro.cols;
+
+    //allocate the memory
+    this->data = (double **) calloc(this->rows, sizeof(double *));
+    for(i=0; i<this->rows; i++) {
+        this->data[i] = (double *) calloc(this->cols, sizeof(double));
+    }
+
+    //copy the data
+    for(i=0; i<this->rows; i++) {
+        for(j=0; j<this->cols; j++) {
+            this->data[i][j] = otro.data[i][j];
+        }
+    }
+
+    return *this;
+}
+// +
+Matriz Matriz::operator + (const Matriz &otro) {
+    Matriz suma(this->rows, this->cols);
+    int i = 0;
+    int j = 0;
+
+    if(this->rows != otro.rows || this->cols != otro.cols) {
+        std::cout << "Las matrices no son del mismo tamaño" << std::endl;
+        return Matriz();
+    }
+
+    for(i=0; i<this->rows; i++) {
+        for(j=0; j<this->cols; j++) {
+            suma.data[i][j] = this->data[i][j] + otro.data[i][j];
+        }
+    }
+
+    return suma;
+}
+
+Matriz Matriz::operator += (const Matriz &otro) {
+    *this = *this + otro;
+
+    return *this;
+}
+// -
+// *
+Matriz Matriz::operator * (const Matriz &otro) {
+    Matriz producto(this->rows, otro.cols);
+
+    int i = 0;
+    int j = 0;
+    int k = 0;
+
+    if(this->cols != otro.rows) {
+        std::cout << "Las matrices no son compatibles" << std::endl;
+        return Matriz();
+    }
+
+    for(i=0; i<this->rows; i++) {
+        for(j=0; j<otro.cols; j++) {
+            for(k=0; k<this->cols; k++) {
+                producto.data[i][j] += this->data[i][k] * otro.data[k][j];
+            }
+        }
+    }
+
+    return producto;
+}
+
+Matriz Matriz::operator * (const double &escalar) {
+    Matriz producto(this->rows, this->cols);
+
+    int i = 0;
+    int j = 0;
+
+    for(i=0; i<this->rows; i++) {
+        for(j=0; j<this->cols; j++) {
+            producto.data[i][j] = this->data[i][j] * escalar;
+        }
+    }
+
+    return producto;
+}
+
+Matriz Matriz::operator *= (const Matriz &otro) {
+    *this = *this * otro;
+
+    return *this;
+}
+
+Matriz Matriz::operator *= (const double &escalar) {
+    *this = *this * escalar;
+
+    return *this;
 }
 
 //I/O
