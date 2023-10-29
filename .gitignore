@@ -21,3 +21,6 @@
 
 //csv
 *.csv
+
+//data
+*.zip
