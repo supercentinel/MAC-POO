@@ -33,3 +33,5 @@ $(EXE): $(OBJ)
 
 clean:
 	rm -f ./*.o ${SOURCE}/*.o
+cross:
+	x86_64-w64-mingw32-g++ -o main.exe $(SRC) $(_MAIN) $(CFLAGS)
