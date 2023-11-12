@@ -7,13 +7,13 @@ INCLUDE:= ${TOPDIR}/include
 SOURCE:= ${TOPDIR}/source
 
 #flags
-CFLAGS:= -I $(INCLUDE) -lsqlite3
+CFLAGS:= -I $(INCLUDE) #-lsqlite3
 
-_DEPS:= Direccion.hpp
+_DEPS:= Direccion.hpp Persona.hpp
 DEPS:= $(patsubst %,$(INCLUDE)/%,$(_DEPS))
 
 _MAIN = main.cpp
-_SRC:= Direccion.cpp
+_SRC:= Direccion.cpp Persona.cpp
 SRC:= $(patsubst %,$(SOURCE)/%,$(_SRC))
 OBJ:= $(SRC:.cpp=.o) $(_MAIN:.cpp=.o)
 
