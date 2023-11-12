@@ -119,13 +119,15 @@ void Direccion::print() {
     std::cout << "Pais: " << this->pais << std::endl;
     std::cout << "Codigo Postal: " << this->codigoPostal << std::endl;
 }
-
+//SQL
 int Direccion::createTable() {
     sqlite3 *db;
     int rc = sqlite3_open("Practica_5.db", &db);
 
     if (rc != SQLITE_OK) {
-        std::cout << "Error opening database" << std::endl;
+        std::cerr << "Error opening database" << std::endl;
+        sqlite3_close(db);
+
         return rc;
     }
 
@@ -144,6 +146,8 @@ int Direccion::createTable() {
 
     if (rc != SQLITE_OK) {
         std::cerr << "Error creating table" << std::endl;
+        sqlite3_close(db);
+
         return rc;
     }
 
@@ -163,6 +167,8 @@ int Direccion::create() {
 
     if (rc != SQLITE_OK) {
         std::cerr << "Error opening database" << std::endl;
+        sqlite3_close(db);
+
         return rc;
     }
 
@@ -179,7 +185,7 @@ int Direccion::create() {
 
     if (rc != SQLITE_OK) {
         std::cerr << "Error preparing statement" << std::endl;
-        std::cout << check << std::endl;
+        sqlite3_close(db);
 
         return rc;
     }
@@ -210,6 +216,7 @@ int Direccion::create() {
         std::cerr << "Error " << errorMessage << std::endl;
         sqlite3_free(errorMessage);
         sqlite3_close(db);
+
         return rc;
     }
 
@@ -230,6 +237,8 @@ int Direccion::read(int id) {
 
     if (rc != SQLITE_OK) {
         std::cerr << "Error opening database" << std::endl;
+        sqlite3_close(db);
+
         return rc;
     }
 
@@ -239,6 +248,8 @@ int Direccion::read(int id) {
 
     if (rc != SQLITE_OK) {
         std::cerr << "Error preparing statement" << std::endl;
+        sqlite3_close(db);
+
         return rc;
     }
 
@@ -266,6 +277,8 @@ int Direccion::update() {
 
     if (rc != SQLITE_OK) {
         std::cerr << "Error opening database" << std::endl;
+        sqlite3_close(db);
+
         return rc;
     }
 
@@ -283,6 +296,8 @@ int Direccion::update() {
 
     if (rc != SQLITE_OK) {
         std::cerr << "Error preparing statement" << std::endl;
+        sqlite3_close(db);
+
         return rc;
     }
 
@@ -290,6 +305,8 @@ int Direccion::update() {
 
     if (rc != SQLITE_DONE) {
         std::cerr << "Error updating data" << std::endl;
+        sqlite3_close(db);
+
         return rc;
     }
 
@@ -306,6 +323,8 @@ int Direccion::delet() {
 
     if (rc != SQLITE_OK) {
         std::cerr << "Error opening database" << std::endl;
+        sqlite3_close(db);
+
         return rc;
     }
 
@@ -315,6 +334,8 @@ int Direccion::delet() {
 
     if (rc != SQLITE_OK) {
         std::cerr << "Error preparing statement" << std::endl;
+        sqlite3_close(db);
+
         return rc;
     }
 
@@ -322,6 +343,8 @@ int Direccion::delet() {
 
     if (rc != SQLITE_DONE) {
         std::cerr << "Error deleting data" << std::endl;
+        sqlite3_close(db);
+
         return rc;
     }
 
