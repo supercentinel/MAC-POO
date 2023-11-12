@@ -47,6 +47,10 @@ Direccion::Direccion(int id) {
 }
 
 // Getters
+int Direccion::getId() {
+    return this->id;
+}
+
 std::string Direccion::getCalle() {
     return this->calle;
 }
@@ -138,6 +142,13 @@ int Direccion::createTable() {
 
     rc = sqlite3_exec(db, sql.c_str(), NULL, NULL, NULL);
 
+    if (rc != SQLITE_OK) {
+        std::cerr << "Error creating table" << std::endl;
+        return rc;
+    }
+
+    rc = sqlite3_close(db);
+
     return rc;
 }
 
@@ -168,6 +179,8 @@ int Direccion::create() {
 
     if (rc != SQLITE_OK) {
         std::cerr << "Error preparing statement" << std::endl;
+        std::cout << check << std::endl;
+
         return rc;
     }
 
@@ -175,6 +188,8 @@ int Direccion::create() {
 
     if (rc == SQLITE_ROW) {
         std::cerr << "Direccion already exists" << std::endl;
+        this->id = sqlite3_column_int(stmt, 0);
+        sqlite3_close(db);
 
         return rc;
     }
@@ -202,7 +217,7 @@ int Direccion::create() {
 
     this->id = assignedId;
 
-    sqlite3_close(db);
+    rc = sqlite3_close(db);
 
     return rc;
 }
@@ -237,6 +252,8 @@ int Direccion::read(int id) {
         this->pais = reinterpret_cast<const char *>(sqlite3_column_text(stmt, 6));
         this->codigoPostal = static_cast<short int>(sqlite3_column_int(stmt, 7));
     }
+
+    rc = sqlite3_close(db);
 
     return rc;
 }
@@ -276,6 +293,8 @@ int Direccion::update() {
         return rc;
     }
 
+    rc = sqlite3_close(db);
+
     return rc;
 }
 
@@ -305,6 +324,8 @@ int Direccion::delet() {
         std::cerr << "Error deleting data" << std::endl;
         return rc;
     }
+
+    rc = sqlite3_close(db);
 
     return rc;
 }
