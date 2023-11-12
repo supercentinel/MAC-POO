@@ -23,7 +23,7 @@ Direccion::Direccion(std::string calle,
         std::string municipio,
         std::string estado,
         std::string pais,
-        short int codigoPostal) {
+        int codigoPostal) {
     this->id = 0;
     this->calle = calle;
     this->numero = numero;
@@ -67,7 +67,7 @@ std::string Direccion::getPais() {
     return this->pais;
 }
 
-short int Direccion::getCodigoPostal() {
+int Direccion::getCodigoPostal() {
     return this->codigoPostal;
 }
 
@@ -96,13 +96,14 @@ void Direccion::setPais(std::string pais) {
     this->pais = pais;
 }
 
-void Direccion::setCodigoPostal(short int codigoPostal) {
+void Direccion::setCodigoPostal(int codigoPostal) {
     this->codigoPostal = codigoPostal;
 }
 
 // Methods
 // I/O
-std::ostream& operator << (std::ostream& os, const Direccion& direccion) {
+std::ostream& operator << (std::ostream &os, const Direccion &direccion) {
+    os << "ID: " << direccion.id << std::endl;
     os << "Calle: " << direccion.calle << std::endl;
     os << "Numero: " << direccion.numero << std::endl;
     os << "Colonia: " << direccion.colonia << std::endl;
@@ -114,7 +115,7 @@ std::ostream& operator << (std::ostream& os, const Direccion& direccion) {
     return os;
 }
 
-std::istream& operator >> (std::istream& is, Direccion& direccion) {
+std::istream& operator >> (std::istream &is, Direccion &direccion) {
     std::cout << "Calle: ";
     is >> direccion.calle;
     std::cout << "Numero: ";
@@ -273,7 +274,7 @@ std::istream& operator >> (std::istream& is, Direccion& direccion) {
 /*         this->municipio = reinterpret_cast<const char *>(sqlite3_column_text(stmt, 4)); */
 /*         this->estado = reinterpret_cast<const char *>(sqlite3_column_text(stmt, 5)); */
 /*         this->pais = reinterpret_cast<const char *>(sqlite3_column_text(stmt, 6)); */
-/*         this->codigoPostal = static_cast<short int>(sqlite3_column_int(stmt, 7)); */
+/*         this->codigoPostal = static_cast<int>(sqlite3_column_int(stmt, 7)); */
 /*     } */
 
 /*     rc = sqlite3_close(db); */

@@ -23,7 +23,7 @@ public:
         std::string municipio,
         std::string estado,
         std::string pais,
-        short int codigoPostal);
+        int codigoPostal);
     /* Direccion(int id); */
     // Getters
     int getId();
@@ -33,7 +33,7 @@ public:
     std::string getMunicipio();
     std::string getEstado();
     std::string getPais();
-    short int getCodigoPostal();
+    int getCodigoPostal();
     // Setters
     void setCalle(std::string calle);
     void setNumero(int numero);
@@ -41,11 +41,11 @@ public:
     void setMunicipio(std::string municipio);
     void setEstado(std::string estado);
     void setPais(std::string pais);
-    void setCodigoPostal(short int codigoPostal);
+    void setCodigoPostal(int codigoPostal);
     // Methods
     // I/O
-    friend std::ostream& operator << (std::ostream& os, const Direccion& direccion);
-    friend std::istream& operator >> (std::istream& is, Direccion& direccion);
+    friend std::ostream& operator << (std::ostream &os, const Direccion &direccion);
+    friend std::istream& operator >> (std::istream &is, Direccion &direccion);
     /* // SQL */
     /* int createTable(); */
     /* int create(); */
