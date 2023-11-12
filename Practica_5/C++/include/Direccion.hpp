@@ -24,7 +24,7 @@ public:
         std::string estado,
         std::string pais,
         short int codigoPostal);
-    Direccion(int id);
+    /* Direccion(int id); */
     // Getters
     int getId();
     std::string getCalle();
@@ -43,12 +43,15 @@ public:
     void setPais(std::string pais);
     void setCodigoPostal(short int codigoPostal);
     // Methods
-    void print();
-    int createTable();
-    int create();
-    int read(int id);
-    int update();
-    int delet();
+    // I/O
+    friend std::ostream& operator << (std::ostream& os, const Direccion& direccion);
+    friend std::istream& operator >> (std::istream& is, Direccion& direccion);
+    /* // SQL */
+    /* int createTable(); */
+    /* int create(); */
+    /* int read(int id); */
+    /* int update(); */
+    /* int delet(); */
 };
 
 #endif // DIRECCION_HPP
