@@ -3,9 +3,11 @@
 #define MATERIA_HPP
 
 #include <iostream>
+#include <istream>
 
 class Materia {
 private:
+    int id;
     std::string nombre;
     std::string clave;
     std::string profesor;
@@ -32,6 +34,7 @@ public:
     void setCreditos(int creditos);
     void setCalificacion(int calificacion);
     // Getters
+    int getId();
     std::string getNombre();
     std::string getClave();
     std::string getProfesor();
@@ -41,7 +44,7 @@ public:
     int getCalificacion();
     // Methods
     friend std::ostream& operator << (std::ostream &os, const Materia &materia);
-    friend std::istream& operator >> (std::ostream &in, Materia &materia);
+    friend std::istream& operator >> (std::istream &in, Materia &materia);
 };
 
 #endif // MATERIA_HPP

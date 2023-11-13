@@ -3,9 +3,11 @@
 #include <iostream>
 #include <istream>
 #include <ostream>
+#include <sys/types.h>
 
 // Contructors
 Materia::Materia() {
+    this->id = 0;
     this->nombre = "";
     this->clave = "";
     this->profesor = "";
@@ -22,6 +24,7 @@ Materia::Materia(std::string nombre,
         std::string salon,
         int creditos,
         int calificacion) {
+    this->id = 0;
     this->nombre = nombre;
     this->clave = clave;
     this->profesor = profesor;
@@ -61,6 +64,10 @@ void Materia::setCalificacion(int calificacion) {
 }
 
 // Getters
+int Materia::getId() {
+    return this->id;
+}
+
 std::string Materia::getNombre() {
     return this->nombre;
 }
@@ -91,6 +98,7 @@ int Materia::getCalificacion() {
 
 // Methods
 std::ostream& operator << (std::ostream &os, const Materia &materia) {
+    os << "Id: " << materia.id << std::endl;
     os << "Nombre: " << materia.nombre << std::endl;
     os << "Clave: " << materia.clave << std::endl;
     os << "Profesor: " << materia.profesor << std::endl;
