@@ -2,6 +2,7 @@
 #include <iterator>
 
 #include "Direccion.hpp"
+#include "Materia.hpp"
 #include "Persona.hpp"
 
 int main() {
@@ -63,6 +64,40 @@ int main() {
         // I/O
         std::cout << p3 << std::endl;
         /* std::cin >> p2; */
+
+        //Materia Class
+        //Contructors
+        Materia m1, m2;
+        Materia m3("Materia 3",
+                "A3",
+                "Profesor 3",
+                "Lunes: 7:00-9:00",
+                "Salon 3",
+                15,
+                7);
+        // Setters
+        m1.setNombre("Materia 1");
+        m1.setClave("A1");
+        m1.setProfesor("Profesor 1");
+        m1.setHorario("Lunes: 7:00-9:00");
+        m1.setSalon("Salon 1");
+        m1.setCreditos(10);
+        m1.setCalificacion(8);
+        // Getters
+        std::cout << m1.getId() << std::endl;
+        std::cout << m1.getNombre() << std::endl;
+        std::cout << m1.getClave() << std::endl;
+        std::cout << m1.getProfesor() << std::endl;
+        std::cout << m1.getHorario() << std::endl;
+        std::cout << m1.getSalon() << std::endl;
+        std::cout << m1.getCreditos() << std::endl;
+        std::cout << m1.getCalificacion() << std::endl;
+        // I/O
+        std::cout << m3 << std::endl;
+        /* std::cin >> m2; */
+
+
+
 
 
         return 0;
