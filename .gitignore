@@ -1,0 +1,27 @@
+//Executables
+//Linux
+*.o
+*.out
+//Windows
+*.exe
+
+//LaTex Files
+*.aux
+*.log
+*.synctex.gz
+*.pdf
+*.fls
+*.fdb_latexmk
+
+//images
+*.jpg
+*.png
+*.gif
+*.jpeg
+
+//csv
+*.csv
+
+//data
+*.zip
+
