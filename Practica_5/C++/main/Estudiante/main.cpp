@@ -1,9 +1,10 @@
 #include <iostream>
-#include <iterator>
+#include <vector>
 
 #include "Direccion.hpp"
 #include "Materia.hpp"
 #include "Persona.hpp"
+#include "Estudiante.hpp"
 
 int main() {
         //Class Direccion
@@ -96,9 +97,62 @@ int main() {
         std::cout << m3 << std::endl;
         /* std::cin >> m2; */
 
+        //Class Estudiante
+        //Vectors for Estudiante
+        std::vector<Materia> materias;
+        materias.push_back(m1);
+        materias.push_back(m2);
+        materias.push_back(m3);
 
+        std::vector<std::string> grupos;
+        grupos.push_back("Grupo 1");
+        grupos.push_back("Grupo 2");
+        grupos.push_back("Grupo 3");
 
-
+        //Contructors
+        Estudiante e1, e2;
+        Estudiante e3("Nombre 3",
+                "Apellido 3",
+                17,
+                d3,
+                "121421414",
+                "asdas@sd.com",
+                77777777,
+                "Carrera 3",
+                3,
+                grupos,
+                materias);
+        // Setters
+        e1.setNombre("Nombre 1");
+        e1.setApellido("Apellido 1");
+        e1.setEdad(11);
+        e1.setDireccion(d1);
+        e1.setTelefono("121414124");
+        e1.setEmail("asd@asd.com");
+        e1.setNumeroDeCuenta(1111111111);
+        e1.setCarrera("Carrera 1");
+        e1.setSemestre(1);
+        e1.setGrupos(grupos);
+        e1.setMaterias(materias);
+        // Getters
+        std::cout << e1.getId() << std::endl;
+        std::cout << e1.getNombre() << std::endl;
+        std::cout << e1.getApellido() << std::endl;
+        std::cout << e1.getEdad() << std::endl;
+        std::cout << e1.getDireccion() << std::endl;
+        std::cout << e1.getTelefono() << std::endl;
+        std::cout << e1.getEmail() << std::endl;
+        std::cout << e1.getNumeroDeCuenta() << std::endl;
+        std::cout << e1.getCarrera() << std::endl;
+        std::cout << e1.getSemestre() << std::endl;
+        for(int i = 0; i < e1.getGrupos().size(); i++) {
+                std::cout << e1.getGrupos()[i] << std::endl;
+        }
+        for(int i = 0; i < e1.getMaterias().size(); i++) {
+                std::cout << e1.getMaterias()[i] << std::endl;
+        }
+        // I/O
+        std::cout << e3 << std::endl;
 
         return 0;
 }

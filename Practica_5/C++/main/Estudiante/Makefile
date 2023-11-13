@@ -9,11 +9,11 @@ SOURCE:= ${TOPDIR}/source
 #flags
 CFLAGS:= -I $(INCLUDE) #-lsqlite3
 
-_DEPS:= Direccion.hpp Persona.hpp Materia.hpp
+_DEPS:= Direccion.hpp Persona.hpp Materia.hpp Estudiante.hpp
 DEPS:= $(patsubst %,$(INCLUDE)/%,$(_DEPS))
 
 _MAIN = main.cpp
-_SRC:= Direccion.cpp Persona.cpp Materia.cpp
+_SRC:= Direccion.cpp Persona.cpp Materia.cpp Estudiante.cpp
 SRC:= $(patsubst %,$(SOURCE)/%,$(_SRC))
 OBJ:= $(SRC:.cpp=.o) $(_MAIN:.cpp=.o)
 
