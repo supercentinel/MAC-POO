@@ -1,10 +1,7 @@
 #include "Persona.hpp"
 
 #include <iostream>
-#include <istream>
-#include <ostream>
-#include <string>
-#include <sqlite3.h>
+//#include <sqlite3.h>
 
 #include "Direccion.hpp"
 

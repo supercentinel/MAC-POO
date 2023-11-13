@@ -1,9 +1,7 @@
 #include "Direccion.hpp"
 
 #include <iostream>
-#include <istream>
-#include <sqlite3.h>
-#include <string>
+//#include <sqlite3.h>
 
 // Contructors
 Direccion::Direccion() {
